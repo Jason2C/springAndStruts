@@ -8,11 +8,13 @@
 </head>
 <body>
 	<div style="position: relative; display: table-cell; vertical-align: middle;">
-		<form action="">
-			用户名:<input name="user.name"> <br>
+		<form action="login.action">
+			帐号:<input name="user.uname"> <br>
 			 密码:<input name="user.pwd">  <br>
 			 <input type="submit" value="登陆">
 		</form>
+		<span style="color: red;">${msg}</span>
+		
 	</div>
 </body>
 </html>

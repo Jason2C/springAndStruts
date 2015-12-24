@@ -23,6 +23,5 @@ public class test {
 	public void main() {
 		AttendanceDao dao = (AttendanceDao) context.getBean("AttendanceDao");
 		System.out.println(dao.find(1));
-		System.out.println(attendanceDao.findAll());
 	}
 }
