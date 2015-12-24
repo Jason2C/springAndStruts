@@ -4,8 +4,9 @@ import java.util.Date;
 
 public class Attendance {
 	private Integer kid;
-	private String attendance_day;
-	private String attendance_every;
+	private Integer uid;
+	private Date attendance_day;
+	private Date attendance_every;
 	private Date attendance_time;
 	private String exception_explain;
 	private String approval_opinion;
@@ -19,19 +20,19 @@ public class Attendance {
 		this.kid = kid;
 	}
 
-	public String getAttendance_day() {
+	public Date getAttendance_day() {
 		return attendance_day;
 	}
 
-	public void setAttendance_day(String attendance_day) {
+	public void setAttendance_day(Date attendance_day) {
 		this.attendance_day = attendance_day;
 	}
 
-	public String getAttendance_every() {
+	public Date getAttendance_every() {
 		return attendance_every;
 	}
 
-	public void setAttendance_every(String attendance_every) {
+	public void setAttendance_every(Date attendance_every) {
 		this.attendance_every = attendance_every;
 	}
 
@@ -65,6 +66,14 @@ public class Attendance {
 
 	public void setOpinion_time(Date opinion_time) {
 		this.opinion_time = opinion_time;
+	}
+
+	public Integer getUid() {
+		return uid;
+	}
+
+	public void setUid(Integer uid) {
+		this.uid = uid;
 	}
 
 }

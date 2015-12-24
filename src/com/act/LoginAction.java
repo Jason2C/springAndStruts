@@ -1,31 +1,51 @@
 package com.act;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 import org.apache.struts2.convention.annotation.Action;
 import org.apache.struts2.convention.annotation.Result;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import com.IBiz.IBiz;
+import com.dao.AttendanceDao;
 import com.dao.UserDao;
-import com.opensymphony.xwork2.ActionSupport;
+import com.pojo.Attendance;
 import com.pojo.User;
 
-public class LoginAction extends ActionSupport {
+public class LoginAction {
+	@Autowired
+	private IBiz biz;
 	private User user;
 	@Autowired
 	private UserDao userDao;
+	@Autowired
+	private AttendanceDao attendanceDao;
 	private String msg;
 
-	@Action(value = "login", results = { @Result(location = "index.jsp") })
+	SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+
+	@Action(value = "login", results = { @Result(location = "/index.jsp", name = "success") })
 	public String login() {
-		System.out.println("111");
+	System.out.println(biz.getUserDao().findByName(user.getUname()));
 		User user1 = userDao.findByName(user.getUname());
 		if (user1 != null) {
 			if (user1.getPwd().equals(user.getPwd())) {
 				msg = "µÇÂ½³É¹¦";
-			}else {
+				if (attendanceDao.findByOne(user1.getUid(), sdf.format(new Date())) == null) {
+					Attendance attendance = new Attendance();
+					attendance.setUid(user1.getUid());
+					attendance.setAttendance_day(new Date());
+					attendance.setAttendance_every(new Date());
+					attendanceDao.insert(attendance);
+				}
+			} else {
 				msg = "µÇÂ½Ê§°Ü";
 			}
+		} else {
+			msg = "µÇÂ½Ê§°Ü";
 		}
-		return SUCCESS;
+		return "success";
 	}
 
 	public User getUser() {

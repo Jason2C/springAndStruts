@@ -10,8 +10,6 @@
     http://www.springframework.org/schema/context/spring-context-3.0.xsd
     http://www.springframework.org/schema/tx
     http://www.springframework.org/schema/tx/spring-tx-3.0.xsd">
-
-
 	<!-- 该 BeanPostProcessor 将自动起作用，对标注 @Autowired 的 Bean 进行自动注入 -->
 	<bean
 		class="org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor" />
@@ -26,11 +24,13 @@
 			</list>
 		</property>
 	</bean>
-	<bean id="BaseDao" class="com.dao.BaseDao" abstract="true">
+	<bean id="BaseDao" class="com.dao.BaseDao">
 		<property name="dataSource" ref="dataSource" />
 	</bean>
-	<bean id="AttendanceDao" class="com.dao.AttendanceDao" parent="BaseDao">
-	</bean>
+	<bean id="UserDao" class="com.dao.UserDao" parent="BaseDao"/>
+	<bean id="AttendanceDao" class="com.dao.AttendanceDao" parent="BaseDao"/>
+	<bean id="AuthorityDao" class="com.dao.AuthorityDao" parent="BaseDao"/>
+	<bean id="GroupDao" class="com.dao.GroupDao" parent="BaseDao"/>
 	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource">
 		<property name="driverClassName" value="${jdbc.driverClassName}" />
 		<property name="url" value="${jdbc.url}" />

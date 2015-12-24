@@ -7,15 +7,16 @@ import org.springframework.stereotype.Controller;
 import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
 
+import com.pojo.Attendance;
+
+@SuppressWarnings("all")
 public class AttendanceDao extends BaseDao {
-
-	public String find(int id) {
-		return (String) super.getJdbcTemplate().queryForObject("select attendance_day from t_Attendance where kid = ?", new Object[] { id }, String.class);
+	public Attendance findByOne(int kid, String day) {
+		String sql = super.getSelectAll() + " where uid = ? and attendance_day = ?";
+		return (Attendance) super.findOne(sql, new Object[] { kid, day });
 	}
 
-	@Override
-	public List findAll() {
-		return super.findAll();
+	public int insert(Attendance attendance) {
+		return super.Insert(attendance);
 	}
-
 }
