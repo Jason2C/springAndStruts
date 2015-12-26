@@ -30,7 +30,7 @@
 	<bean id="UserDao" class="com.dao.UserDao" parent="BaseDao"/>
 	<bean id="AttendanceDao" class="com.dao.AttendanceDao" parent="BaseDao"/>
 	<bean id="AuthorityDao" class="com.dao.AuthorityDao" parent="BaseDao"/>
-	<bean id="GroupDao" class="com.dao.GroupDao" parent="BaseDao"/>
+	<bean id="GroupsDao" class="com.dao.GroupsDao" parent="BaseDao"/>
 	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource">
 		<property name="driverClassName" value="${jdbc.driverClassName}" />
 		<property name="url" value="${jdbc.url}" />

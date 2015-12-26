@@ -1,16 +1,19 @@
 package com.pojo;
 
+import java.io.Serializable;
 import java.util.Date;
 
-public class Attendance {
+public class Attendance implements Serializable {
+
 	private Integer kid;
-	private Integer uid;
 	private Date attendance_day;
 	private Date attendance_every;
 	private Date attendance_time;
 	private String exception_explain;
 	private String approval_opinion;
 	private Date opinion_time;
+	private Integer empid;
+	private Integer bossid;
 
 	public Integer getKid() {
 		return kid;
@@ -68,12 +71,20 @@ public class Attendance {
 		this.opinion_time = opinion_time;
 	}
 
-	public Integer getUid() {
-		return uid;
+	public Integer getEmpid() {
+		return empid;
 	}
 
-	public void setUid(Integer uid) {
-		this.uid = uid;
+	public void setEmpid(Integer empid) {
+		this.empid = empid;
+	}
+
+	public Integer getBossid() {
+		return bossid;
+	}
+
+	public void setBossid(Integer bossid) {
+		this.bossid = bossid;
 	}
 
 }

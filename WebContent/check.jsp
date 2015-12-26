@@ -15,37 +15,31 @@
 	<a href="javascript:;">查看部门考勤</a>
 	<a href="gofillAtt.action">审批考勤申请</a>
 	<hr>
-	个人考勤中心<br>${msg}<br>
+	查询部门考勤<br>${msg}<br>
 	<div style="background-color: #848484;width: 580px;"> 
 		<div style="float: left;">
 			<form action="afillAtt.action" method="get">
 				<table>
 					<tr>
-						<td>请选择时间:</td>
+						<td>查询指定月份:</td>
+						<td><input class="Wdate" type="text" name="attendance.attendance_time" onClick="WdatePicker({dateFmt: 'yyyy-MM-dd HH:mm:ss'})"></td>
+						<td>查询指定的组:</td>
 						<td><input class="Wdate" type="text" name="attendance.attendance_time" onClick="WdatePicker({dateFmt: 'yyyy-MM-dd HH:mm:ss'})"></td>
 					</tr>
 					<tr>
-						<td>异常解释原因:</td>
-						<td><input type="text" name="attendance.exception_explain"></td>
-					</tr>
-					<tr>
-						<td><input type="submit" value="补考勤"></td>
+						<td><input type="submit" value="更改"></td>
+						<td></td>
+						<td><input type="submit" value="更改"></td>
 						<td></td>
 					</tr>
-				</table>
-			</form>
-		</div>
-		<div style="height: 62px;">
-			<form id="form2">
-				<table>
-					<tr>
+					<!-- <tr>
 						<td>查询指定月份:</td>
 						<td><input class="Wdate" type="text" onClick="WdatePicker({dateFmt: 'yyyy-MM', isShowToday: false, isShowClear: false})"></td>
 					</tr>
 					<tr>
 						<td><input type="button" value="查询"></td>
 						<td></td>
-					</tr>
+					</tr> -->
 				</table>
 			</form>
 		</div>
@@ -66,16 +60,6 @@
 				</c:forEach>
 			</table>
 		</div>
-	</div>
-	<br><br>
-	月份考勤统计:
-	<div style="background-color: #848484;width: 580px;">
-		<table border="1">
-			<tr><td colspan="4" style="width: 580px;"><span>该月总打卡数:${alistlg}(次)</span></td> </tr>
-			<tr><td><span>准点</span></td><td colspan="3"><span>迟到:0(次)</span></td></tr>	
-			<tr><td rowspan="2"><span style="color: #006400;">0(次)</span></td><td><span>无故</span></td><td><span>因故</span></td><td><span>未被确认</span></td></tr>
-			<tr><td><span style="color: red;">0</span></td><td><span style="color: #006400;">0</span><td><span style="color: #87CEFA;">0</span></td></tr>		
-		</table>
 	</div>
 </body>
 </html>
